@@ -45,8 +45,14 @@ router.put('/', (req, res) => {
     console.log(data);
     //TODO：此处可以对数据进行验证
     pool.query('UPDATE xfn_category SET ? WHERE cid=?', [data, data.cid], (err, result) => {
-        console.log(result);
-        // if (err) throw err;
-        // res.send({ code: 200, msg: '1 category modified' });
+        // console.log(result);
+        if (err) throw err;
+        if (result.updatedRows > 0) {
+            res.send({ code: 200, msg: '1 category modified' });
+        } else if (result.affcetedRows == 0) {
+            res.send({ code: 401, msg: 'category not exists' })
+        } else if (result.affcetedRows == 1 && updatedRows == 0) {
+            res.send({ code: 401, msg: 'no category modified' });
+        }
     });
 });
