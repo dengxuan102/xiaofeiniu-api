@@ -36,6 +36,7 @@
             axios.post('http://127.0.0.1:8090/admin/category',data)
             .then(res => {
                 console.log('添加新的类别'+ data.cname +'成功');
+                console.log(result.data);
             }).catch(err => {
                 console.error(err); 
             })

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="btn1">管理员登陆</button>
+    <button id="btn2">修改管理员密码</button>
+    <script src="./axios.min.js"></script>
+    <script>
+        btn1.onclick= (()=> {
+            var data = {aname:'admin', apwd:'123456'};
+            axios.get('http://127.0.0.1:8090/admin/login',data).then((result)=>{
+                console.log('登陆成功,结果为：');
+                console.log(result.data);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        });
+
+        btn2.onclick= (()=> {
+            axios.delete('http://127.0.0.1:8090/admin/category/3').then((result)=>{
+                console.log('删除菜品类别成功：');
+                console.log(result.data);
+            }).catch((err)=>{
+                console.log(err);
+            })
+        });
+       
+
+    </script>
+</body>
+</html>

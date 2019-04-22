@@ -8,10 +8,32 @@ const router = express.Router();
 module.exports = router;
 
 /*
-* API:    GET   /admin/login?
-* 请求数据：{aname:'xxx', apwd:'xxx'}
+* API:    GET   /admin/login/:aname/:apwd
+* 完成用户登陆验证（提示：有的项目中此处选择post请求
 * 返回数据：
 * {code:200, msg:'login success'}
 * {code:400, msg:'aname or apwd wrong'}
 */
+
+router.get('/login', (req, res) => {
+    var data = req.body;
+    console.log(data);
+    res.send(data);
+    // pool.query('')
+})
+
+
+
+
+
+/*
+* API:    PATCH或PUT   /admin
+* 请求数据：{aname:'xxx', oldPwd:'xxx',newPwd:'xxx}
+* 根据管理员名和密码修改管理员密码
+* 返回数据：
+* {code:200, msg:'login success'}
+* {code:400, msg:'aname or apwd not exists'}
+* {code:400, msg:'apwd not modified'}
+*/
+
 
