@@ -47,11 +47,11 @@ router.put('/', (req, res) => {
     pool.query('UPDATE xfn_category SET ? WHERE cid=?', [data, data.cid], (err, result) => {
         // console.log(result);
         if (err) throw err;
-        if (result.updatedRows > 0) {
+        if (result.changedRows > 0) {
             res.send({ code: 200, msg: '1 category modified' });
-        } else if (result.affcetedRows == 0) {
-            res.send({ code: 401, msg: 'category not exists' })
-        } else if (result.affcetedRows == 1 && updatedRows == 0) {
+        } else if (result.affectedRows == 0) {
+            res.send({ code: 400, msg: 'category not exists' });
+        } else if (result.affectedRows == 1 && result.changedRows == 0) {
             res.send({ code: 401, msg: 'no category modified' });
         }
     });
