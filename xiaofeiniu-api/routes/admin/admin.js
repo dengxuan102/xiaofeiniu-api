@@ -39,3 +39,4 @@ router.get('/login/:aname/:apwd', (req, res) => {
 */
 
 
+router.get();
