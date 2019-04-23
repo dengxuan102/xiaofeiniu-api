@@ -14,18 +14,18 @@ module.exports = router;
 * {code:200, msg:'login success'}
 * {code:400, msg:'aname or apwd wrong'}
 */
-
-router.get('/login', (req, res) => {
+router.get('/login/:aname/:apwd', (req, res) => {
     var aname = req.params.aname;
     var apwd = req.params.apwd;
-    pool.query('SELECT aid FROM xfn_admin WHERE aname=? AND apwd=PASSWORD(?)', [anme, apwd], (err, result) => {
+    pool.query('SELECT aid FROM xfn_admin WHERE aname=? AND apwd=PASSWORD(?)', [aname, apwd], (err, result) => {
         if (err) throw err;
-        
+        if(result.length>0){
+            res.send({code:200, msg:'login success'});
+        }else{
+            res.send({code:400, msg:'aname or apwd wrong'});
+        }
     });
-})
-
-
-
+});
 
 
 /*
