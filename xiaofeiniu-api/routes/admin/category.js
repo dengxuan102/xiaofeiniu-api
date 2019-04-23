@@ -1,7 +1,7 @@
 const express = require('express');
 const pool = require('../../pool');
 var router = express.Router();
-var body = express('body-Parser')
+var body = express('body-Parser');
 module.exports = router;
 
 
