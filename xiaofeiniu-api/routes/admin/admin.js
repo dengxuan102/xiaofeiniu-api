@@ -57,7 +57,6 @@ router.patch('/', (req, res) => {
             } else {
                 res.send({ code: 401, msg: 'apwd not modified' });
             }
-            
         })
     })
 });
