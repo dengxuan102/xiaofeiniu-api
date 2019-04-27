@@ -5,6 +5,7 @@ const cors = require('cors');
 
 const categoryRouter = require('./routes/admin/category');
 const adminRouter = require('./routes/admin/admin');
+const dishRouter = require('./routes/admin/dish')
 var app = express();
 
 app.listen(PORT, () => {
@@ -18,3 +19,4 @@ app.use(bodyParser.json());     //把json格式请求主题数据解析出来放
 //挂在路由器
 app.use('/admin/category', categoryRouter);
 app.use('/admin', adminRouter);
+app.use('/admin/dish', dishRouter);
