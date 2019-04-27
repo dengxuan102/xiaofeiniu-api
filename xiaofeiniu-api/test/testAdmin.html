@@ -12,7 +12,6 @@
     <script src="./axios.min.js"></script>
     <script>
         btn1.onclick= (()=> {
-<<<<<<< HEAD
             axios.get('http://127.0.0.1:8090/admin/login/admin/123456').then((result)=>{
                 console.log('登陆成功,结果为：');
                 console.log(result.data);
@@ -29,18 +28,6 @@
                 console.log(err);
             })
         });
-       
-
-=======
-            var data = {aname:'admin', apwd:'123456'};
-            axios.get('http://127.0.0.1:8090/admin/login/admin/123456',data).then((result)=>{
-                console.log('登陆成功,结果为：');
-                console.log(result.data);
-            }).catch((err)=>{
-                console.log(err);
-            });
-        });
->>>>>>> 2397ddf80bdb36a61433dd594767e0850e182daf
     </script>
 </body>
 </html>
