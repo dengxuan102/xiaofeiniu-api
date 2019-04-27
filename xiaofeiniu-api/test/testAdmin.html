@@ -19,7 +19,6 @@
                 console.log(err); 
             })
         });
-
         btn2.onclick= (()=> {
             var data = {aname:'admin', oldPwd:'123456',newPwd:'777777'};
             axios.patch('http://127.0.0.1:8090/admin',data).then((result)=>{
